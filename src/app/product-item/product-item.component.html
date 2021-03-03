@@ -1,0 +1,20 @@
+<img src={{product.image}} width=120;>
+<br>
+<h3>
+    <a href="{{product.link}}" [title]="product.name + ' details'" style="text-decoration: underline;">
+      {{ product.name }}
+    </a>
+  </h3>
+
+  <p *ngIf="product.description">
+    Description: {{ product.description }}
+  </p>
+  <p *ngIf="product.description">
+    Price: {{ product.price }}$
+  </p>
+  <p *ngIf="product.rating">
+    Rating: {{ product.rating }}
+  </p>
+  <p *ngIf="product.likes">
+    Likes: {{ product.likes }}
+  </p>

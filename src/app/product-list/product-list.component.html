@@ -1,0 +1,32 @@
+<h2>Categories</h2>
+
+<div *ngFor="let category of products" class="category">
+
+  <p (click)="categoryPressed(category.category_id)" style="text-decoration: underline;" class="category_name">{{category.category_name}}</p>
+
+  <div *ngIf="category.display_flag">
+    <div *ngFor="let item of category.items" class="product" >
+      <app-product-item
+        [product]="item">
+      </app-product-item>
+      <button (click)="share(item.link, item.name)">
+        Share
+      </button>
+
+      <button (click)="likeItem(category.category_id, item.id)">
+        Like
+      </button>
+
+      <button (click)="removeItem(category.category_id, item.id)">
+        Remove
+      </button>
+
+      <app-product-alerts
+        [product]="item" 
+        (notify)="onNotify()">
+      </app-product-alerts>
+      <hr>
+    </div>
+  </div>
+
+</div>
